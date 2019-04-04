@@ -1,0 +1,956 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /address/:
+    get:
+      tags:
+      - address
+      description: get Address
+      operationId: AddressController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Address'
+        "403":
+          description: ""
+    post:
+      tags:
+      - address
+      description: create Address
+      operationId: AddressController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Address content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Address'
+      responses:
+        "201":
+          description: '{int} models.Address'
+        "403":
+          description: body is empty
+  /address/{id}:
+    get:
+      tags:
+      - address
+      description: get Address by id
+      operationId: AddressController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Address'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - address
+      description: update the Address
+      operationId: AddressController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Address content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Address'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Address'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - address
+      description: delete the Address
+      operationId: AddressController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /comment/:
+    get:
+      tags:
+      - comment
+      description: get Comment
+      operationId: CommentController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Comment'
+        "403":
+          description: ""
+    post:
+      tags:
+      - comment
+      description: create Comment
+      operationId: CommentController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Comment content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Comment'
+      responses:
+        "201":
+          description: '{int} models.Comment'
+        "403":
+          description: body is empty
+  /comment/{id}:
+    get:
+      tags:
+      - comment
+      description: get Comment by id
+      operationId: CommentController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Comment'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - comment
+      description: update the Comment
+      operationId: CommentController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Comment content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Comment'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Comment'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - comment
+      description: delete the Comment
+      operationId: CommentController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /good/:
+    get:
+      tags:
+      - good
+      description: get Good
+      operationId: GoodController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Good'
+        "403":
+          description: ""
+    post:
+      tags:
+      - good
+      description: create Good
+      operationId: GoodController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Good content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Good'
+      responses:
+        "201":
+          description: '{int} models.Good'
+        "403":
+          description: body is empty
+  /good/{id}:
+    get:
+      tags:
+      - good
+      description: get Good by id
+      operationId: GoodController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Good'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - good
+      description: update the Good
+      operationId: GoodController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Good content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Good'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Good'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - good
+      description: delete the Good
+      operationId: GoodController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /order/:
+    get:
+      tags:
+      - order
+      description: get Order
+      operationId: OrderController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Order'
+        "403":
+          description: ""
+    post:
+      tags:
+      - order
+      description: create Order
+      operationId: OrderController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Order content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Order'
+      responses:
+        "201":
+          description: '{int} models.Order'
+        "403":
+          description: body is empty
+  /order/{id}:
+    get:
+      tags:
+      - order
+      description: get Order by id
+      operationId: OrderController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Order'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - order
+      description: update the Order
+      operationId: OrderController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Order content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Order'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Order'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - order
+      description: delete the Order
+      operationId: OrderController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /order_item/:
+    get:
+      tags:
+      - order_item
+      description: get OrderItem
+      operationId: OrderItemController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrderItem'
+        "403":
+          description: ""
+    post:
+      tags:
+      - order_item
+      description: create OrderItem
+      operationId: OrderItemController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for OrderItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrderItem'
+      responses:
+        "201":
+          description: '{int} models.OrderItem'
+        "403":
+          description: body is empty
+  /order_item/{id}:
+    get:
+      tags:
+      - order_item
+      description: get OrderItem by id
+      operationId: OrderItemController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrderItem'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - order_item
+      description: update the OrderItem
+      operationId: OrderItemController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for OrderItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrderItem'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrderItem'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - order_item
+      description: delete the OrderItem
+      operationId: OrderItemController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /seller/:
+    get:
+      tags:
+      - seller
+      description: get Seller
+      operationId: SellerController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seller'
+        "403":
+          description: ""
+    post:
+      tags:
+      - seller
+      description: create Seller
+      operationId: SellerController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Seller content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Seller'
+      responses:
+        "201":
+          description: '{int} models.Seller'
+        "403":
+          description: body is empty
+  /seller/{id}:
+    get:
+      tags:
+      - seller
+      description: get Seller by id
+      operationId: SellerController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seller'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - seller
+      description: update the Seller
+      operationId: SellerController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Seller content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Seller'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seller'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - seller
+      description: delete the Seller
+      operationId: SellerController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /user/:
+    get:
+      tags:
+      - user
+      description: get User
+      operationId: UserController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: ""
+    post:
+      tags:
+      - user
+      description: create User
+      operationId: UserController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for User content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "201":
+          description: '{int} models.User'
+        "403":
+          description: body is empty
+  /user/{id}:
+    get:
+      tags:
+      - user
+      description: get User by id
+      operationId: UserController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - user
+      description: update the User
+      operationId: UserController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for User content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - user
+      description: delete the User
+      operationId: UserController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Address:
+    title: Address
+    type: object
+    properties:
+      AddressDetails:
+        type: string
+      AddressJd:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Mail:
+        type: string
+      Name:
+        type: string
+      Phone:
+        type: string
+      Uid:
+        $ref: '#/definitions/models.User'
+  models.Comment:
+    title: Comment
+    type: object
+    properties:
+      Content:
+        type: string
+      Gid:
+        $ref: '#/definitions/models.Good'
+      Id:
+        type: integer
+        format: int64
+      Otid:
+        $ref: '#/definitions/models.OrderItem'
+      Socre:
+        type: integer
+        format: int32
+      Time:
+        type: string
+        format: datetime
+  models.Good:
+    title: Good
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      Img:
+        type: string
+      Name:
+        type: string
+      Num:
+        type: integer
+        format: int64
+      Price:
+        type: number
+        format: double
+      Sid:
+        $ref: '#/definitions/models.Seller'
+  models.Order:
+    title: Order
+    type: object
+    properties:
+      Aid:
+        $ref: '#/definitions/models.Address'
+      Id:
+        type: integer
+        format: int64
+      Time:
+        type: string
+        format: datetime
+      Uid:
+        $ref: '#/definitions/models.User'
+  models.OrderItem:
+    title: OrderItem
+    type: object
+    properties:
+      Cid:
+        $ref: '#/definitions/models.Comment'
+      Gid:
+        $ref: '#/definitions/models.Good'
+      Id:
+        type: integer
+        format: int64
+      Num:
+        type: integer
+        format: int64
+      Oid:
+        $ref: '#/definitions/models.Order'
+  models.Seller:
+    title: Seller
+    type: object
+    properties:
+      BeginTime:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Name:
+        type: string
+      Rank:
+        type: integer
+        format: int32
+  models.User:
+    title: User
+    type: object
+    properties:
+      Aid:
+        $ref: '#/definitions/models.Address'
+      Id:
+        type: integer
+        format: int64
+      Password:
+        type: string
+      Username:
+        type: string
+tags:
+- name: address
+  description: |
+    AddressController operations for Address
+- name: comment
+  description: |
+    CommentController operations for Comment
+- name: good
+  description: |
+    GoodController operations for Good
+- name: order
+  description: |
+    OrderController operations for Order
+- name: order_item
+  description: |
+    OrderItemController operations for OrderItem
+- name: seller
+  description: |
+    SellerController operations for Seller
+- name: user
+  description: |
+    UserController operations for User
